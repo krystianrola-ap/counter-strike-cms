@@ -4,7 +4,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
 }
 .homeImage {
   width: 500px;
@@ -21,7 +20,6 @@
 .titleContainer{
     width:100%;
     height: fit-content;
-    border: 1px solid red;
 }
 .featuredTitle {
   backgrond-color: transparent;
@@ -74,4 +72,22 @@
 
 .title:after {
   transform: skew(-40deg);
+}
+
+.featuredPlayers{
+    width: 100%;
+    height: fit-content;
+    min-height: 150px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.featuredPlayer{
+    flex:1;
+    height: 100%;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid  #f3a521;
 }

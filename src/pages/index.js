@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
 import { graphql } from 'gatsby'
-import {homeImageDiv,homeImage, descriptionStyle, featuredTitle, title,titleContainer} from "./home.module.css";
+import {homeImageDiv,homeImage, descriptionStyle, featuredTitle, title,titleContainer,featuredPlayers,featuredPlayer} from "./home.module.css";
 import Player from '../components/player/player';
 import Layout from "../components/layout/layout"
 
@@ -52,20 +52,20 @@ const IndexPage = ({ data :{wpPage : { homePage }} }) => (
           <div className={title}> Featured Players  </div>
         </div>
       </div>
-      {/* <div>
+      <div className={featuredPlayers}>
         {
           homePage.featuredPlayers.player.map( item => {
             return (
-              <div> 
-                  <GatsbyImage 
+              <div className={featuredPlayer}> 
+                  {/* <GatsbyImage 
                       image={getImage(item.playersMeta.profileImage.localFile)} 
                       alt={item.playersMeta.playertag}           
-                  />
+                  /> */}
               </div>
             )
           })
         }
-      </div> */}
+      </div>
   </Layout>
   </main>
 )
