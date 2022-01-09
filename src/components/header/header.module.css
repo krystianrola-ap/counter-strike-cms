@@ -1,7 +1,10 @@
 .header{
-    background-color: #161d28;
+    background-color: rgba(22, 22, 22, 0.9);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid black;
-    margin-bottom: 1.45rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 .container{
     display: flex;

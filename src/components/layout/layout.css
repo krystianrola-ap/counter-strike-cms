@@ -595,3 +595,85 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+html{
+  background: url('../../images/cs-background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* layout main */
+.layoutDiv{
+    height: 100vh;
+}
+
+/* title styling */
+.titleDiv{
+  backgrond-color: transparent;
+  display: flex;
+  color: #fff;
+  padding: 2px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: 70%;
+  margin-inline: auto 
+}
+
+.titleDiv:before,
+.titleDiv:after {
+  content: '';
+  margin: auto 1em;
+  border-bottom: solid 1px #fff;
+  flex: 1;
+}
+
+.title{
+  position: relative;
+  padding: 0.25em 1em;
+  overflow: hidden;
+  background: 
+    linear-gradient(#fff, #fff) no-repeat top center, 
+    linear-gradient(#fff, #fff) no-repeat bottom center;
+  background-size: calc(100% - 1.65em) 1px;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: 'Quantico','Changa','Noto Sans', sans-serif;
+  text-transform: uppercase;
+  min-width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title:before,
+.title:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: solid 1px #fff;
+  border-top: none;
+  border-bottom: none;
+  transform: skew(40deg);
+}
+
+.title:after {
+  transform: skew(-40deg)
+}
+
+.mainDiv{
+  background-color: rgba(22, 22, 22, 0.4);
+  backdrop-filter: blur(10px);
+  position: relative;
+  top: 35%;
+  width: 70%;
+  height: fit-content;
+  margin: auto;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+}

@@ -1,7 +1,8 @@
 import * as React from 'react';
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout';
 import { graphql } from "gatsby"
-import { GatsbyImage, getImage } from 'gatsby-plugin-image' 
+import Player from '../components/player/player';
+import {playersContainer} from "./players.module.css"
 
 export const data = graphql`
     query {
@@ -35,16 +36,18 @@ export const data = graphql`
 `;
 
 
-const Roles = ({data: {allWpPlayer: {edges}}}) => { 
+const Players = ({data: {allWpPlayer: {edges}}}) => { 
     return (
-        <Layout>
+        <Layout pageTitle={"Players"}>
+            <div className={playersContainer}>
             {
                 edges.map((item)=>{
-                    return  <GatsbyImage image={getImage(item.node.playersMeta.profileImage.localFile)} alt={item.node.playersMeta.playertag} />
+                    return  <Player player={item}/>
                 })
             }
+            </div>
         </Layout>
     )
 }
 
-export default Roles;
+export default Players;

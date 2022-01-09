@@ -1,18 +1,71 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import { useStaticQuery, graphql } from 'gatsby'
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
+import { graphql } from 'gatsby'
+import {homeImageDiv,homeImage, descriptionStyle, featuredTitle, title,titleContainer} from "./home.module.css";
+import Player from '../components/player/player';
+import Layout from "../components/layout/layout"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+export const data = graphql`
+  query {
+    wpPage (slug: {eq: "home"}) {
+      homePage {
+        description
+        featuredPlayers {
+          player {
+            ... on WpPlayer {
+              id
+              playersMeta {
+                playertag
+                profileImage {
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData(placeholder: BLURRED)
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 
-const IndexPage = () => (
+`
+
+const IndexPage = ({ data :{wpPage : { homePage }} }) => (
   <main>
-    <Layout>
-    <StaticImage
-      alt="cs logo"
-      src="../images/CS.jpg"
-    />
+    <Layout pageTitle={"Home"}>
+      <div className={homeImageDiv}>
+        <p className={descriptionStyle}>
+          {homePage.description}
+        </p>
+        <StaticImage
+          alt="cs logo"
+          src="../images/CS.jpg"
+          className={homeImage}
+        />
+      </div>
+      <div className={titleContainer}>
+        <div className={featuredTitle}>
+          <div className={title}> Featured Players  </div>
+        </div>
+      </div>
+      {/* <div>
+        {
+          homePage.featuredPlayers.player.map( item => {
+            return (
+              <div> 
+                  <GatsbyImage 
+                      image={getImage(item.playersMeta.profileImage.localFile)} 
+                      alt={item.playersMeta.playertag}           
+                  />
+              </div>
+            )
+          })
+        }
+      </div> */}
   </Layout>
   </main>
 )

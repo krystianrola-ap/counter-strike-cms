@@ -1,6 +1,7 @@
-import * as React from "react"
-import Layout from "../components/layout"
-import { graphql } from "gatsby"
+import * as React from "react";
+import Layout from "../components/layout/layout";
+import { graphql } from "gatsby";
+import Role from "../components/roles/role";
 
 export const data = graphql`
 query {
@@ -9,20 +10,20 @@ query {
         node {
           name
           description
+          slug
         }
       }
     }
   }
-  
-`
+`;
 
 const Roles = ({data: {allWpRole: {edges}}}) => {
 
   return (
-    <Layout>
+    <Layout pageTitle={"Roles"}>
       <div>{edges.map((item)=>{
-          const player = item.node;
-          return <p> {player.name} </p>
+          const role = item.node;
+          return <Role role={role} key={role.slug}/> 
       })}</div>
     </Layout>
   )
